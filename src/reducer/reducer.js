@@ -11,6 +11,7 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
+  console.log("reducerrrr", state, action);
   switch (action.type) {
     case SEARCH_MOVIES_REQUEST:
       return {

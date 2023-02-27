@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-const Search = () => {
+const Search = ({ onSubmit }) => {
   const [searchInput, setSearchInput] = useState("");
   const handleReset = () => {
     setSearchInput("");
@@ -8,6 +8,8 @@ const Search = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    onSubmit(searchInput);
+    handleReset();
   };
 
   return (
