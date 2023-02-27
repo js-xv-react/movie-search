@@ -5,6 +5,7 @@ import Loading from "../components/Loading/Loading";
 import MoviesList from "../components/Movies/MoviesList";
 import Search from "../components/Search/Search";
 import { reducer, initialState } from "../reducer/reducer";
+import API from "../config/api";
 import { apiKey } from "../config/apiKey";
 import { SEARCH_MOVIES_FAILED, SEARCH_MOVIES_SUCCESS } from "../reducer/types";
 // const [state, dispatch] = useReducer(reducer, initialState, init?);
@@ -17,7 +18,7 @@ const HomeView = () => {
   // http://www.omdbapi.com/?s=MOVIE&apikey=APIKEY
   const handleMovieSearch = (movie) => {
     // http://www.omdbapi.com/?s=batman&apikey=APIKEY
-    axios.get(`http://www.omdbapi.com/?s=${movie}&${apiKey}`).then((res) => {
+    API.get(`?s=${movie}&${apiKey}`).then((res) => {
       console.log(res.data);
       if (res.data.Response === "True") {
         dispatch({
